@@ -7,7 +7,7 @@ RUN yum upgrade \
 && yum -y install epel-release \
 && yum -y install python-pip \
 && pip install --upgrade pip \
-&& yum install mod_wsgi
+&& yum install mod_wsgi \
 && yum clean all 
 
 # modify settings in httpd.conf
