@@ -1,17 +1,19 @@
 FROM centos:latest
-
+# part 1
 # LABAL 
 # ENV 
-RUN yum upgrade \
-&& yum install httpd httpd-devel -y \
-&& yum -y install epel-release \
-&& yum -y install python-pip \
-&& pip install --upgrade pip \
-&& yum install mod_wsgi \
-&& yum clean all 
 
-# modify settings in httpd.conf
+# part 2 install dependency of httpd and python
+RUN yum upgrade -y
+RUN yum install -y httpd httpd-devel 
+RUN yum install -y mod_wsgi 
+RUN yum install -y epel-release
+RUN yum install -y python-pip
+RUN yum clean all
+RUN pip --version
+RUN pip install --upgrade pip
 
+# part 3 modify settings in httpd.conf
 
 EXPOSE 80
 CMD []
