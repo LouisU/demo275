@@ -14,4 +14,4 @@ RUN yum upgrade \
 
 
 EXPOSE 80
-CMD
+CMD []
