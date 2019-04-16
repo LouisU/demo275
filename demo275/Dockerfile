@@ -22,5 +22,4 @@ RUN sed -i '$a ServerName localhost:80' httpd.conf
 
 
 EXPOSE 80
-ENTRYPOINT ["httpd", "-k", "start"]
 CMD []
