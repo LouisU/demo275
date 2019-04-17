@@ -3,6 +3,7 @@ FROM centos:latest
 # LABAL 
 # ENV 
 COPY . /var/www/demo275
+WORKDIR /var/www/demo275
 
 # part 2 install dependency of httpd and python
 RUN yum upgrade -y
@@ -12,8 +13,8 @@ RUN yum install -y epel-release
 RUN yum install -y python-pip
 RUN yum clean all
 RUN pip --version
-RUN pip install --upgrade pip 
-
+RUN pip install --upgrade pip
+RUN pip install -r requirements.txt
 
 # part 3 modify settings in httpd.conf
 WORKDIR /etc/httpd/conf
