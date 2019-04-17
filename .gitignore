@@ -1,0 +1,9 @@
+
+*.pyc
+.idea
+*.xml
+
+*.log
+local_settings.py
+
+media/
