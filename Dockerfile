@@ -19,10 +19,12 @@ RUN pip install -r requirements.txt
 # part 3 modify settings in httpd.conf
 WORKDIR /etc/httpd/conf
 # This command just make sure that 127.0.0.1 can response right thing.
+RUN sed -i '/^DocumentRoot/c DocumentRoot "/var/www/demo275"' httpd.conf
+RUN sed -i '/^# Further relax access to the/{n;s/html/demo275/;}' httpd.conf
 RUN sed -i '$a ServerName localhost:80' httpd.conf
-RUN sed -i '/^DocumentRoot/c DocumentRoot "/var/www/demo275"' httpd.conf 
-RUN sed -i '/^# Further relax access to the/{n;s/html/demo275/;}' httpd.conf 
 RUN sed -i '$a WSGIScriptAlias / /var/www/demo275/demo275/wsgi.py' httpd.conf
+RUN sed -i '$a Alias /static /var/www/demo275/static' httpd.conf
+RUN sed -i '$a Alias /media /var/www/demo275/media' httpd.conf
 # more settings should be set.
 
 
