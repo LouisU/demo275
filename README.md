@@ -7,3 +7,5 @@ In this project, the experience and knowledge involves:
 2. Django. It's about APP building.
 3. RESTful. developing the REST API.
 4. DevOps flow.
+  1. CI
+  2. CD
