@@ -98,9 +98,6 @@ DATABASES = {
         'PORT': os.getenv('MYSQL_SECURITY_PORT_3306_TCP_PORT'),
         'USER': 'root',
         'PASSWORD': os.getenv('MYSQL_SECURITY_ENV_MYSQL_ROOT_PASSWORD'),
-        'OPTIONS': {
-                    'sql_mode': 'STRICT_TRANS_TABLES',
-                }
     }
 }
 
