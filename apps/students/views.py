@@ -81,7 +81,7 @@ class StudentsListViewSet(mixins.ListModelMixin, viewsets.GenericViewSet):
     filterset_class = StudentFilter
     search_fields = ('name', 'card_physicalID')
     ordering_fields = ('name', 'card_physicalID')
-    throttle_classes = (UserRateThrottle, AnonRateThrottle)
+    # throttle_classes = (UserRateThrottle, AnonRateThrottle)
 
 
     # 演示了自己修改基类APIView的get_queryset()方法来实现数据过滤
