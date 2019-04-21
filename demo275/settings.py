@@ -93,11 +93,11 @@ WSGI_APPLICATION = 'demo275.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'xiaoyuan_xadmin',
-        'HOST': 'gz-cdb-5njn94uv.sql.tencentcdb.com',
-        'PORT': '63229',
+        'NAME': os.getenv('MYSQL_SECURITY_ENV_MYSQL_DATABASE'),
+        'HOST': os.getenv('MYSQL_SECURITY_ENV_HOST'),
+        'PORT': os.getenv('MYSQL_SECURITY_PORT_3306_TCP_PORT'),
         'USER': 'root',
-        'PASSWORD': 'Meihao365@net',
+        'PASSWORD': os.getenv('MYSQL_SECURITY_ENV_MYSQL_ROOT_PASSWORD'),
         'OPTIONS': {
                     'sql_mode': 'STRICT_TRANS_TABLES',
                 }
@@ -168,8 +168,8 @@ REST_FRAMEWORK = {
     # ),
     #
     'DEFAULT_THROTTLE_RATES': {
-        'anon': '2/minute',
-        'user': '3/minute'
+        'anon': '5/minute',
+    #   'user': '3/minute'
     }
 
 }
