@@ -1,0 +1,50 @@
+version: '3'
+  
+services:
+
+  app:
+    image: 1056699051/louispythonapp
+    ports:
+      - 80:8000
+    depends_on:
+      - mysql-security
+    environment:
+      MYSQL_SECURITY_ENV_HOST: mysql-security
+      MYSQL_SECURITY_ENV_MYSQL_DATABASE: demo
+      MYSQL_SECURITY_PORT_3306_TCP_PORT: 3306
+      MYSQL_SECURITY_ENV_MYSQL_ROOT_PASSWORD: root
+    networks:
+      - my-network
+    deploy:
+      mode: replicated
+      replicas: 6
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+      update_config:
+        parallelism: 2
+        delay: 10s
+
+  mysql-security:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: demo
+    volumes:
+      - mysql-security:/var/lib/mysql
+    networks:
+      - my-network
+    deploy:
+      mode: global
+      placement:
+        constraints:
+          - node.role == manager
+
+volumes:
+  mysql-security:
+    external: true
+    
+networks:
+  my-network:
+    driver: overlay

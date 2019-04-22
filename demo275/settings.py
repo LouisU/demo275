@@ -30,7 +30,7 @@ SECRET_KEY = 'ketviwo5w&u$s#s_zn@a35gb%=a0&2d)ca!99$ce_tw0h1elz8'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['192.168.205.10', '192.168.205.11', '192.168.205.12', '127.0.0.1']
 AUTH_USER_MODEL = 'users.UserProfile'
 
 # Application definition
