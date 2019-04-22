@@ -25,7 +25,6 @@ services:
       update_config:
         parallelism: 2
         delay: 10s
-        order: stop-first
 
   mysql-security:
     image: mysql:5.7
